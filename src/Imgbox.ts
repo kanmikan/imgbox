@@ -91,7 +91,7 @@ class Imgbox {
     form.append('token_id', this.token.token_id)
     form.append('token_secret', this.token.token_secret)
     form.append('content_type', 2)
-    form.append('thumbnail_size', '100c')
+    form.append('thumbnail_size', '350r')
     form.append('gallery_id', this.token.gallery_id)
     form.append('gallery_secret', this.token.gallery_secret)
     form.append('comments_enabled', 0)

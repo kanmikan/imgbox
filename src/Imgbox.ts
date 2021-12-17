@@ -128,11 +128,12 @@ class Imgbox {
       }
       return result
     } catch (error) {
-      console.error(error)
-      return {
-        ok: false,
-        message: error.message,
-      }
+		let eMessage = "Error random";
+		if (error instanceof Error){
+			eMessage = error.message;
+		}
+		console.error(eMessage);
+		return {ok: false, message: eMessage,}
     }
   }
 

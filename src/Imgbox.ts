@@ -25,6 +25,11 @@ interface Url {
   filename: string
   url: Buffer
 }
+
+interface Opt {
+	thumbnail_size: string
+}
+
 class Imgbox {
   token!: {
     token_id: number
@@ -85,13 +90,13 @@ class Imgbox {
     this.setConfig(csrf, cookie)
   }
 
-  upload = async (images: Images[]): Promise<FinalResult> => {
+  upload = async (images: Images[], options: Opt): Promise<FinalResult> => {
     const form = new FormData()
 
     form.append('token_id', this.token.token_id)
     form.append('token_secret', this.token.token_secret)
     form.append('content_type', 2)
-    form.append('thumbnail_size', '350r')
+    form.append('thumbnail_size', options.thumbnail_size)
     form.append('gallery_id', this.token.gallery_id)
     form.append('gallery_secret', this.token.gallery_secret)
     form.append('comments_enabled', 0)
